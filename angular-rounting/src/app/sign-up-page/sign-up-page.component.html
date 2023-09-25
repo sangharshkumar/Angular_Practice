@@ -1,0 +1,110 @@
+<div style="text-align: center; font-size: 20px">
+  <h1 class="">Registration Form</h1>
+  <div>
+    <form [formGroup]="signupForm" (ngSubmit)="signUpUser()">
+      <div style="margin: 10px">
+        <input
+          type="text"
+          style="width: 350px; height: 35px"
+          formControlName="fname"
+          #fname
+          placeholder="enter user FirstName"
+          name="fname"
+        />
+        <br />
+        <span
+          style="color: red"
+          *ngIf="
+            userFirstName && userFirstName.invalid && userFirstName.touched
+          "
+          >This field is required.</span
+        >
+      </div>
+      <div style="margin: 10px">
+        <input
+          type="text"
+          style="width: 350px; height: 35px"
+          formControlName="lname"
+          #lname
+          placeholder="enter user LastName"
+          name="lname"
+        />
+        <br />
+        <span
+          style="color: red"
+          *ngIf="userLastName && userLastName.invalid && userLastName.touched"
+          >This field is required.</span
+        >
+      </div>
+      <div style="margin: 10px">
+        <input
+          type="text"
+          style="width: 350px; height: 35px"
+          formControlName="email"
+          #email
+          placeholder="enter user email"
+          name="email"
+        />
+        <br />
+        <span
+          style="color: red"
+          *ngIf="userEmail && userEmail.invalid && userEmail.touched"
+          >This field is required.</span
+        >
+      </div>
+      <div style="margin: 10px">
+        <input
+          type="text"
+          style="width: 350px; height: 35px"
+          formControlName="phone"
+          #Phone
+          placeholder="enter user phone"
+          name="phone"
+        />
+        <br />
+        <span
+          style="color: red"
+          *ngIf="userPhone && userPhone.invalid && userPhone.touched"
+          >This field is required.</span
+        >
+      </div>
+      <div style="margin: 10px">
+        <input
+          type="password"
+          style="width: 350px; height: 35px"
+          formControlName="password"
+          #password
+          placeholder="enter user password"
+          name="password"
+        />
+        <br />
+        <span
+          style="color: red"
+          *ngIf="userPassword && userPassword.invalid && userPassword.touched"
+          >This field is required.</span
+        >
+      </div>
+      <div style="margin: 10px">
+        <button
+          style="
+            width: 350px;
+            height: 35px;
+            background-color: green;
+            color: white;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+          "
+          [disabled]="
+            userPhone.invalid &&
+            userFirstName.invalid &&
+            userLastName.invalid &&
+            userEmail.invalid
+          "
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

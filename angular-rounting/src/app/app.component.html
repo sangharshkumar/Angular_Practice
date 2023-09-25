@@ -1,0 +1,9 @@
+<div class="topnav">
+  <a class="active" routerLink="home">Home</a>
+  <a routerLink="about">About</a>
+  <a routerLink="user">User Profile</a>
+  <a style="float: right;" routerLink="signup" *ngIf="IsShowLogOut()">SignUp User</a>
+  <a style="float: right;" routerLink="login" *ngIf="IsShowLogIn()">Login User</a>
+  <a (click)="LogOut()" *ngIf="!IsShowLogOut()"  style="float: right; cursor: pointer;">LogOut</a>
+</div>
+<router-outlet></router-outlet>
