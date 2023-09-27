@@ -1,0 +1,81 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<div class="card" style="margin-top: 150px">
+  <div style="text-align: center; font-size: 20px">
+    <h1 class="">Login User Page</h1>
+    <div>
+      <form #LoginForm (ngSubmit)="LoginUser()">
+        <div style="margin: 10px" class="form-group">
+          <input
+            type="text"
+            style="width: 350px; height: 35px"
+            formControlName="email"
+            #email
+            placeholder="enter user email"
+            name="email"
+          />
+          <br />
+          <span
+            style="color: red"
+            *ngIf="userEmail && userEmail.invalid && userEmail.touched"
+            >This field is required.</span
+          >
+        </div>
+        <div style="margin: 10px" class="form-group">
+          <input
+            type="password"
+            style="width: 350px; height: 35px"
+            formControlName="password"
+            #password
+            placeholder="enter user password"
+            name="password"
+          />
+          <br />
+          <span
+            style="color: red"
+            *ngIf="userPassword && userPassword.invalid && userPassword.touched"
+            >This field is required.</span
+          >
+        </div>
+        <div style="margin: 10px; display: flex; justify-content: center; gap: 10px;" class="form-group">
+          <button
+            style="
+              width: 150px;
+              height: 35px;
+              background-color: green;
+              color: white;
+              font-size: 25px;
+              border: none;
+              cursor: pointer;
+            "
+            [disabled]="userEmail?.invalid"
+          >
+            Login
+          </button>
+          <a routerLink="../forgot-password"
+            style="
+              width: 150px;
+              height: 35px;
+              color: blue;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            forgot password
+        </a>
+          <br />
+          <span style="color: red" *ngIf="message"
+            >You have entered wrong email and password.</span
+          >
+          <br />
+          <span style="color: red" *ngIf="noAccount"
+            >Account does not Exits. Please Click SignUp Link!</span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

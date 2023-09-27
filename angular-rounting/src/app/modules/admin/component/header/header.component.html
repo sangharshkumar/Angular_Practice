@@ -1,0 +1,13 @@
+<div class="topnav">
+    <a *ngIf="!IsShowLogOut()" routerLink="./home" routerLinkActive="active">Home</a>
+    <a *ngIf="!IsShowLogOut()" routerLink="./about" routerLinkActive="active">About</a>
+    <a *ngIf="!IsShowLogOut()" routerLink="./user" routerLinkActive="active">User Profile</a>
+    <a *ngIf="!IsShowLogOut()" routerLink="./contact" routerLinkActive="active">User Contact</a>
+    <a *ngIf="!IsShowLogOut()" routerLink="./services" routerLinkActive="active">Services</a>
+    <a style="float: right;" routerLink="signup" *ngIf="IsShowLogOut()">SignUp User</a>
+    <a style="float: right;" routerLink="login" *ngIf="IsShowLogIn()">Login User</a>
+    <a (click)="LogOut()" *ngIf="!IsShowLogOut()"  style="float: right; cursor: pointer;">LogOut</a>
+  </div>
+  <div *ngIf="IsLogged()">
+    
+  </div>

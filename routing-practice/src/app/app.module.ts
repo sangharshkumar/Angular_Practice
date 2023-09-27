@@ -1,31 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
-import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
-import {ReactiveFormsModule} from '@angular/forms'
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { UserComponent } from './modules/admin/component/user/user.component';
-
+import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     LoginpageComponent,
-    SignUpPageComponent,
     ForgotPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule,
-    ReactiveFormsModule,
     AppRoutingModule,
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

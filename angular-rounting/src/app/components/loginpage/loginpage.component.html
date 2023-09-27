@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="container vh-100">
+  <div class="row justify-content-center h-100">
+      <div class="card my-auto shadow">
+          <div class="card-body px-5">
+              <div class="text-center">
+                  <h2>Welcome</h2>
+              </div>
+              <p style="color: lightslategray; text-align: center;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your login
+                  details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+              <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()">
+                  <div class="form-group">
+                      <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email"
+                          name="email" />
+                  </div>
+                  <div class="form-group">
+                      <input type="password" id="password" placeholder="Password" class="form-control"
+                          formControlName="password" name="password" />
+                  </div>
+                  <input type="submit" class="btn btn-primary w-100" value="Login" name="">
+              </form>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div class="card-footer text-left">
+                <small><a routerLink="../signup">goto Sign Up</a></small>
+            </div>
+            <div class="card-footer text-right">
+                <small><a routerLink="../forgot-password">Forgot Password</a></small>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

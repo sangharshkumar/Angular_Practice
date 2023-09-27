@@ -1,41 +1,44 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
+import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
+import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { AppComponent } from './app.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthGuard } from './gaurds/auth.guard';
 
 const routes: Routes = [
   {
-    path:'',
-    component:LoginpageComponent
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path:'about',
-    component:AboutComponent
+    path: 'login',
+    component: LoginpageComponent,
   },
   {
-    path:'signup',
-    component:SignUpPageComponent
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
   },
   {
-    path:'login',
-    component:LoginpageComponent
+    path: 'signup',
+    component: SignUpPageComponent,
   },
   {
-    path:'user',
-    component:UserComponent
+    path: 'admin',
+     //canActivate:[AuthGuard],
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
   {
-    path:'home',
-    component:HomeComponent
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
